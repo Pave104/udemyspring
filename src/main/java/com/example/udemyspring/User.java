@@ -4,10 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 @Entity
 public class User implements Serializable {
+    @Serial
     private static final long serialVersionUID =1L;
      @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +20,7 @@ public class User implements Serializable {
     private String password;
 
     public User() {
-        
+
     }
 
     public long getId() {
@@ -81,6 +83,18 @@ public class User implements Serializable {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", fone='" + fone + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
